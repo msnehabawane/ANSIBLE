@@ -12,12 +12,12 @@
 
   - name: download jenkins key
     ansible.builtin.get_url:
-      url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+      url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
       dest: /usr/share/keyrings/jenkins-keyring.asc
         
   - name: Add Jenkins repo
     ansible.builtin.apt_repository:
-      repo: deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/
+      repo: deb https://pkg.jenkins.io/debian-stable binary/
       state: present
       filename: jenkins.list  
 
